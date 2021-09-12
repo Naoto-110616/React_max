@@ -1,6 +1,11 @@
 import styles from "./PopupBackground.module.css";
 
-const PopupBackground = () => {
-	return <div className={`${styles[`popup-background`]}`}></div>;
+const PopupBackground = (props) => {
+	return (
+		<div
+			className={`${styles[`popup-background`]}`}
+			onClick={props.clickClosePopup}
+		></div>
+	);
 };
 export default PopupBackground;

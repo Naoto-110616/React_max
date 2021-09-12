@@ -35,7 +35,7 @@ const App = () => {
 	if (popupSentence.length > 0) {
 		contents = (
 			<div>
-				<PopupBackground />
+				<PopupBackground clickClosePopup={closePopupHandler} />
 				<Popup clickClosePopup={closePopupHandler} sentence={popupSentence} />
 			</div>
 		);
