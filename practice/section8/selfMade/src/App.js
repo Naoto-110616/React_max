@@ -15,14 +15,23 @@ const App = () => {
 				age: enteredUserAge,
 				id: Math.random().toString(),
 			});
-			console.log(updateUsers);
 			return updateUsers;
 		});
 	};
+	const enteredUserInfoDeleteHandler = (usersId) => {
+		setEnteredUserInfo((prevUser) => {
+			const updatedUsers = prevUser.filter((user) => user.id !== usersId);
+			return updatedUsers;
+		});
+	};
+
 	return (
 		<>
 			<InputUser onAddUserInfo={addUserListHandler} />
-			<OutputUser userInfo={enteredUsersInfo} />
+			<OutputUser
+				userInfo={enteredUsersInfo}
+				deleteHandler={enteredUserInfoDeleteHandler}
+			/>
 		</>
 	);
 };

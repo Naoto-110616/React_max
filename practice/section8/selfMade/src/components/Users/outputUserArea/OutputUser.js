@@ -7,7 +7,11 @@ const OutputUser = (props) => {
 		<Card>
 			<ul className={`${styles[`outputArea`]}`}>
 				{props.userInfo.map((user) => (
-					<OutputUserList key={user.id} id={user.id}>
+					<OutputUserList
+						key={user.id}
+						id={user.id}
+						onDelete={props.deleteHandler}
+					>
 						{user.name} ({user.age} years old)
 					</OutputUserList>
 				))}
