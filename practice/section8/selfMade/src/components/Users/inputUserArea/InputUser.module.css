@@ -1,0 +1,14 @@
+.input-user__area {
+}
+.input-user__wrap {
+}
+.input-user__wrap h2 {
+	font-size: 15px;
+}
+.input-user__wrap input {
+	width: 100%;
+	height: 30px;
+}
+Button {
+	margin-top: 10px;
+}
