@@ -13,9 +13,15 @@ const InputUser = (props) => {
 
 	const enteredUserHandler = (event) => {
 		event.preventDefault();
-		if (userName.trim().length === 0 || userAge.trim().length === 0) {
+		if (userAge.trim() < 0) {
+			const popupSentence = `Please enter a valid age (>0).`;
+			props.popupChange(popupSentence);
+			return;
+		} else if (userName.trim().length === 0 || userAge.trim().length === 0) {
 			setIsValidName(false);
 			setIsValidAge(false);
+			const popupSentence = `Please enter a valid name and age (none-empty values)`;
+			props.popupChange(popupSentence);
 			return;
 		}
 		props.onAddUserInfo(userName, userAge);

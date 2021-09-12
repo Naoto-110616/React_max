@@ -1,0 +1,15 @@
+.popup {
+	height: 200px;
+}
+.popup-title {
+	color: black;
+}
+.popup-button {
+	text-align: right;
+}
+.popup-display {
+	display: inline;
+	position: absolute;
+	width: 100%;
+	top: 25%;
+}
