@@ -14,6 +14,8 @@ const InputUser = (props) => {
 	const enteredUserHandler = (event) => {
 		event.preventDefault();
 		if (userAge.trim() < 0) {
+			setIsValidName(false);
+			setIsValidAge(false);
 			const popupSentence = `Please enter a valid age (>0).`;
 			props.popupChange(popupSentence);
 			return;
