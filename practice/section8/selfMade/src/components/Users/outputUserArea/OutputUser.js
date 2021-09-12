@@ -1,17 +1,18 @@
 import Card from "../../UI/Card";
 import styles from "./OutputUser.module.css";
+import OutputUserList from "./OutputUserList";
 
 const OutputUser = (props) => {
 	return (
 		<Card>
-			<div className={`${styles[`outputArea`]}`}>
-				<p>
-					{props.userInfo[0].name}({props.userInfo[0].age}years old)
-				</p>
-				<p>
-					{props.userInfo[1].name}({props.userInfo[1].age}years old)
-				</p>
-			</div>
+			<ul className={`${styles[`outputArea`]}`}>
+				{props.userInfo.map((user) => (
+					<OutputUserList key={user.id} id={user.id}>
+						{user.name}
+						{user.age}
+					</OutputUserList>
+				))}
+			</ul>
 		</Card>
 	);
 };

@@ -1,21 +1,37 @@
+import { useState } from "react";
+
 import Button from "../../UI/Button";
 import Card from "../../UI/Card";
+import InputUserColumns from "./InputUserColumns";
 import styles from "./InputUser.module.css";
 
-const InputUser = () => {
+const InputUser = (props) => {
+	const [userName, setUserName] = useState("");
+	const [userAge, setUserAge] = useState("");
+
+	const enteredUserHandler = (event) => {
+		event.preventDefault();
+		props.onAddUserInfo(userName, userAge);
+	};
+
+	const enteredUserNameHandler = (event) => {
+		const enteredUserName = event.target.value;
+		setUserName(enteredUserName);
+	};
+	const enteredUserAgeHandler = (event) => {
+		const enteredUserAge = event.target.value;
+		setUserAge(enteredUserAge);
+	};
+
 	return (
 		<Card>
-			<form action="submit">
+			<form onSubmit={enteredUserHandler}>
 				<div className={`${styles[`input-user__area`]}`}>
-					<div className={`${styles[`input-user__wrap`]}`}>
-						<h2>User Name</h2>
-						<input type="text"></input>
-					</div>
-					<div className={`${styles[`input-user__wrap`]}`}>
-						<h2>Age(Years)</h2>
-						<input type="number"></input>
-					</div>
-					<Button>Add User</Button>
+					<InputUserColumns
+						addUserName={enteredUserNameHandler}
+						addUserAge={enteredUserAgeHandler}
+					/>
+					<Button onClick={enteredUserHandler}>Add User</Button>
 				</div>
 			</form>
 		</Card>

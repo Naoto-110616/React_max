@@ -3,20 +3,26 @@ import InputUser from "./components/Users/inputUserArea/InputUser";
 import OutputUser from "./components/Users/outputUserArea/OutputUser";
 
 const App = () => {
-	const enteredUserInfo = [
-		{
-			name: "max",
-			age: 32,
-		},
-		{
-			name: "naoto",
-			age: 22,
-		},
-	];
+	const [enteredUsersInfo, setEnteredUserInfo] = useState([
+		{ id: `u1`, name: `Max`, age: 32 },
+		{ id: `u2`, name: `Naoto`, age: 22 },
+	]);
+	const addUserListHandler = (enterdUserName, enteredUserAge) => {
+		setEnteredUserInfo((prevUser) => {
+			const updateUsers = [...prevUser];
+			updateUsers.unshift({
+				name: enterdUserName,
+				age: enteredUserAge,
+				id: Math.random().toString(),
+			});
+			console.log(updateUsers);
+			return updateUsers;
+		});
+	};
 	return (
 		<>
-			<InputUser />
-			<OutputUser userInfo={enteredUserInfo} />
+			<InputUser onAddUserInfo={addUserListHandler} />
+			<OutputUser userInfo={enteredUsersInfo} />
 		</>
 	);
 };
