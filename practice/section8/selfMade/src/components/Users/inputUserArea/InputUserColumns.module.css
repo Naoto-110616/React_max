@@ -1,0 +1,13 @@
+.input-user__wrap input {
+	width: 100%;
+	height: 30px;
+}
+.isValid {
+}
+.isValid h2 {
+	color: red;
+}
+.isValid input {
+	border: red;
+	background-color: coral;
+}

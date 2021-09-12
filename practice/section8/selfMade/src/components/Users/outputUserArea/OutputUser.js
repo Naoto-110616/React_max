@@ -8,8 +8,7 @@ const OutputUser = (props) => {
 			<ul className={`${styles[`outputArea`]}`}>
 				{props.userInfo.map((user) => (
 					<OutputUserList key={user.id} id={user.id}>
-						{user.name}
-						{user.age}
+						{user.name} ({user.age} years old)
 					</OutputUserList>
 				))}
 			</ul>
