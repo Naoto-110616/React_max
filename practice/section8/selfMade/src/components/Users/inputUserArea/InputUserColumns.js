@@ -9,7 +9,11 @@ const InputUserColumns = (props) => {
 				}`}
 			>
 				<h2>User Name</h2>
-				<input type="text" onChange={props.addUserName}></input>
+				<input
+					type="text"
+					value={props.enteredName}
+					onChange={props.addUserName}
+				></input>
 			</div>
 			<div
 				className={`${styles[`input-user__wrap`]} ${
@@ -17,7 +21,11 @@ const InputUserColumns = (props) => {
 				}`}
 			>
 				<h2>Age(Years)</h2>
-				<input type="number" onChange={props.addUserAge}></input>
+				<input
+					type="number"
+					value={props.enteredAge}
+					onChange={props.addUserAge}
+				></input>
 			</div>
 		</>
 	);
